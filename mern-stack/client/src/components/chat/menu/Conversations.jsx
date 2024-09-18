@@ -16,7 +16,7 @@ const StyledDivider = styled(Divider)`
 `
 
 
-const Conversations = () => {
+const Conversations = ({text = ''}) => {
     const [users, setUsers] = useState([]);
 
     const { account } = useContext(AccountContext);
@@ -24,11 +24,10 @@ const Conversations = () => {
     useEffect(() => {
         const fetchData = async () => {
             let response = await getUsers();
-            console.log('Fetched users:', response); // Log response
-            setUsers(response);
+            const filteredData = response.filter(user => user.name?.toLowerCase().includes(text.toLowerCase()));            setUsers(filteredData);
         }
         fetchData();
-    }, []);
+    }, [text]);
 
     return (
             <Component>

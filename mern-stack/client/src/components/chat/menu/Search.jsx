@@ -16,8 +16,8 @@ const Wrapper = styled(Box)`
     margin: 0 13px;
     width: 100%;
     max-width: 100%;  /* Ensures the wrapper does not exceed 100% width */
-    border-raduius : 10px;
-    aligh-items: center;
+    border-radius : 10px;
+    align-items: center;
     display: flex;
 `;
 
@@ -37,7 +37,7 @@ const InputField = styled(InputBase)`
     font-size: 14px;
     `;
 
-const Search = () => {
+const Search = ({setText}) => {
     return (
         <Component>  {/* Ensure the outer box spans 100% width */}
             <Wrapper>
@@ -48,6 +48,7 @@ const Search = () => {
                 </Icon>
                 <InputField
                     placeholder='Search or start new chat' 
+                    onChange={(e) => setText(e.target.value)}
                 />
             </Wrapper>
         </Component>

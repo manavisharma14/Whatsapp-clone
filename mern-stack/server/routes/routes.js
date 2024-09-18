@@ -1,10 +1,13 @@
 // routes/routes.js
 import express from 'express';
 import { addUser, getUser } from '../controller/user-controller.js';
+import { newConversation } from '../controller/conversation-controller.js';
 
-const router = express.Router();
+const route = express.Router();
 
-router.post('/add', addUser);
-router.get('/users', getUser);
+route.post('/add', addUser);
+route.get('/users', getUser);
 
-export default router;
+route.post('/conversation/add', newConversation);
+
+export default route;
